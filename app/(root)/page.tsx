@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
+import { dummyInterviews } from "@/constants";
+// import { Inter } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import InterviewCard from "../../components/interviewCards";
 
 const page = () => {
   return (
@@ -31,13 +34,17 @@ const page = () => {
       <section className="flex flex-col gap-4 mt-8">
         <h2>Your interviews</h2>
         <div className="interviews-section">
-          <p>You haven&apos;t scheduled any interviews yet </p>
+          {dummyInterviews.map((interview) => (
+            <InterviewCard {...interview} key={interview.id} />
+          ))}
         </div>
       </section>
       <section className="flex flex-col gap-6 mt-8">
         <h2>Take an Interview</h2>
         <div className="interviews-section">
-          <p>There are no interviews available</p>
+          {dummyInterviews.map((interview) => (
+            <InterviewCard {...interview} key={interview.id} />
+          ))}
         </div>
       </section>
     </>
