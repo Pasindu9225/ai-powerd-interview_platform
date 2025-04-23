@@ -1,10 +1,15 @@
 import Agent from "@/components/Agent";
-import React from "react";
+import { getCurrentUser } from "@/lib/actions/auth.action";
 
-const page = () => {
+const page = async () => {
+  const user = await getCurrentUser();
   return (
     <>
-      <Agent />
+      <Agent
+        userName={user?.name ?? "Guest"}
+        userId={user?.id ?? "unknown"}
+        type="generate"
+      />
     </>
   );
 };
